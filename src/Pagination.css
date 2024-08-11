@@ -1,0 +1,19 @@
+.btn{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 30px;
+    width: 30px;
+    border-radius:100% ;
+    border: 2px;
+    margin: 18px;
+}
+
+.select-btn{
+    background-color: rgb(4, 0, 211);
+    color: rgb(255, 255, 255);
+    height: 30px;
+    width: 30px;
+    border-radius:100% ;
+    border: 2px;
+    margin: 18px;
+}
