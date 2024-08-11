@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef} from "react";
 import "./Pagination.css";
 import nextpage from "./assets/angle-right.png";
 import firstpage from "./assets/lastpage.png";
