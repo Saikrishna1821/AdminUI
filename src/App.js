@@ -90,24 +90,40 @@ function App() {
       selectedRows.current.push(id);
     }
   };
+const debounceForFilter=(e)=>{
+  let timerId;
+  return function (e){
+    clearTimeout(timerId);
+    timerId=setTimeout(()=>{
+      console.log('debounce called')
+      filterOut(e);
+
+    },500)
+  }
+}
+let debounce=debounceForFilter();
 
   const handleMultipleRows = () => {
-    let newData = data.filter(
-      (item) => !selectedRows.current.includes(item.id)
-    );
-    setData([...newData]);
-    selectedRows.current = [];
+    console.log('on delete method',selectedRows.current);
+    let newData=originalData.current.filter((item) =>!selectedRows.current.includes(item.id));
+    
+    originalData.current=[...newData]
     setAllRows(false);
+    setData([...newData]);  
+    console.log('orignal data',originalData.current.length,data.length,newData.length);
+    
+    
+    
   };
   const filterOut = (e) => {
     let filter = e.target.value;
     if (filter.length > 0) {
       let filteredData = originalData.current.filter((item) => {
         if (
-          item.id == filter ||
-          item.name.includes(filter) ||
-          item.email.includes(filter) ||
-          item.role.includes(filter)
+          item.id ===filter ||
+          item.name.includes(filter.toLowerCase()||filter.toUpperCase()) ||
+          item.email.includes(filter.toLowerCase()||filter.toUpperCase()) ||
+          item.role.includes(filter.toLowerCase()||filter.toUpperCase())
         )
           return item;
       });
@@ -123,7 +139,7 @@ function App() {
         <input
           type="text"
           placeholder="Search by name , email or role"
-          onChange={filterOut}
+          onChange={debounce}
         />
         <table>
           <thead>
@@ -215,7 +231,7 @@ function App() {
         {allRows?<button className="delete" onClick={() => handleMultipleRows()}>
           Delete All rows
         </button>:null}
-        <Pagination length={length} handlePage={handlePage} />
+        <Pagination length={length} handlePage={handlePage}  />
       </div>
     </div>
   );

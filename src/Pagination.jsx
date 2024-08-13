@@ -5,7 +5,7 @@ import firstpage from "./assets/lastpage.png";
 import prevpage from "./assets/angle-left.png";
 import lastpage from "./assets/next-page.png";
 
-function Pagination({ length, handlePage }) {
+function Pagination({ length, handlePage}) {
   const currentPageValue = useRef(1);
   let pages = [];
 
