@@ -32,7 +32,7 @@ function Pagination({ length, handlePage}) {
   return (
     <>
       {currentPageValue.current !== 1 ? (
-        <button onClick={(e) => handleInput(e, 1)} className="btn">
+        <button onClick={(e) => handleInput(e, 1)} className="first-page">
           <img src={firstpage} alt="first" width="20px" />
         </button>
       ) : (
@@ -44,7 +44,7 @@ function Pagination({ length, handlePage}) {
           <>
             {currentPageValue.current !== 1 ? (
               index === 0 ? (
-                <button className="btn" onClick={(e) => handleInput(e, page)}>
+                <button className="previous-page" onClick={(e) => handleInput(e, page)}>
                   <img src={prevpage} alt="prev" width="20px" />
                 </button>
               ) : null
@@ -55,7 +55,7 @@ function Pagination({ length, handlePage}) {
               {page}
             </button>
             {currentPageValue.current!==length?(index === length - 1 ? (
-              <button className="btn" onClick={(e) => handleInput(e, page)}>
+              <button className="next-page" onClick={(e) => handleInput(e, page)}>
                 <img src={nextpage} alt="next" width="20px" />
               </button>
             ) : null):''}

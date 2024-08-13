@@ -166,7 +166,7 @@ let debounce=debounceForFilter();
                   <tr key={item.id} >
                     <td >
                       <input
-                        type="checkbox"
+                        type="checkbox" className="checkbx"
                         {...(allRows ? { checked: true } : null)} 
                         onChange={() => handleSelect(item.id)}
                       />{" "}
@@ -197,7 +197,7 @@ let debounce=debounceForFilter();
                     </td>
                     <td>{item.role}</td>
                     <td>
-                      <button id="icon-btn">
+                      <button id="edit">
                         <img
                           onClick={(e) => handleEdit(e, item, index)}
                           className={editingRow === item.id ? "save" : "edit"}
@@ -209,7 +209,7 @@ let debounce=debounceForFilter();
                       </button>
                     </td>
                     <td>
-                      <button id="icon-btn" >
+                      <button id="delete" >
                         <img
                           onClick={() => handleDelete(index)}
                           src={trash}
@@ -229,7 +229,7 @@ let debounce=debounceForFilter();
       </div>
       <div>
         {allRows?<button className="delete" onClick={() => handleMultipleRows()}>
-          Delete All rows
+        Delete Selected
         </button>:null}
         <Pagination length={length} handlePage={handlePage}  />
       </div>

@@ -10,13 +10,28 @@ td {
   color: rgb(0, 0, 0);
   letter-spacing: 2px;
   text-align: left;
+  font-weight: bold;
 }
 .dd {
   background-color: gray;
 }
 #data-btn{
-  text-align:  center;
+    text-align: center;
+    position: absolute;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
   
+}
+th{
+  background-color: rgb(17, 13, 39);
+  color: aliceblue;
+}
+.checkbx{
+  height: 20px;
 }
 
 input {
@@ -34,6 +49,7 @@ table {
   width: 100%;
   backdrop-filter: blur(200px);
   height: 590px;
+  border: 1px solid black;
 }
 .delete{
   color: white;
@@ -56,10 +72,10 @@ table {
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  width: 80vw;
+  width: 90vw;
 }
 
-#icon-btn {
+#icon-btn,#edit,#delete {
   background-color: transparent;
   border: none;
   cursor: pointer;
